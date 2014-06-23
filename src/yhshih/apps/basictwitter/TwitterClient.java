@@ -38,6 +38,14 @@ public class TwitterClient extends OAuthBaseClient {
     	params.put("since_id", "1");
     	client.get(apiUrl, params, handler);	// use GET method
     }
+    
+    public void getHomeTimeline(AsyncHttpResponseHandler handler, int since_id, int count) {
+    	String apiUrl = getApiUrl("statuses/home_timeline.json");
+    	RequestParams params = new RequestParams();
+    	params.put("since_id", String.valueOf(since_id));
+    	params.put("count", String.valueOf(count));
+    	client.get(apiUrl, params, handler);	// use GET method
+    }
     // CHANGE THIS
     // DEFINE METHODS for different API endpoints here
 /*    public void getInterestingnessList(AsyncHttpResponseHandler handler) {

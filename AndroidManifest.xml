@@ -47,6 +47,10 @@
             android:name="yhshih.apps.basictwitter.TimelineActivity"
             android:label="@string/title_activity_timeline" >
         </activity>
+        <activity
+            android:name="yhshih.apps.basictwitter.ComposeActivity"
+            android:label="@string/title_activity_compose" >
+        </activity>
     </application>
 
 </manifest>

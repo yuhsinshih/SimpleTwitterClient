@@ -8,5 +8,6 @@
     <string name="login_label">Connect to Twitter</string>
     <string name="title_activity_timeline">TimelineActivity</string>
     <string name="foo_label">\@foo</string>
+    <string name="title_activity_compose">ComposeActivity</string>
 
 </resources>

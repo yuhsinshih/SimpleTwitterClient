@@ -1,5 +1,6 @@
 package yhshih.apps.basictwitter;
 
+import android.util.Log;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 

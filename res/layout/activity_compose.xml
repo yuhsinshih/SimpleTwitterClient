@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <com.loopj.android.image.SmartImageView
+        android:id="@+id/ivUser"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvComposeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivUser"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/ivUser"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/tvComposeScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivUser"
+        android:layout_alignLeft="@+id/tvComposeName"
+        android:textColor="#808080"
+        android:textSize="12dp"
+        android:text="Screen Name" />
+
+    <EditText
+        android:id="@+id/etStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ivUser"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ivUser"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="What&apos;s happening?" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btnTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etStatus"
+        android:layout_below="@+id/etStatus"
+        android:layout_marginTop="20dp"
+        android:onClick="onSubmit"
+        android:text="Post tweet" />
+
+</RelativeLayout>

@@ -47,7 +47,7 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		
 		// Populate views with tweet data
 		imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
-		tvUserName.setText(tweet.getUser().getScreenName());
+		tvUserName.setText(tweet.getUser().getName());
 		tvBody.setText(tweet.getBody());
 		tvCreatedTime.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
 		return v;
@@ -71,5 +71,5 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		}
 
 		return relativeDate;
-	}	
+	}
 }

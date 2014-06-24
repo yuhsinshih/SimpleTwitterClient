@@ -25,6 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvUserName"
         android:layout_below="@+id/tvUserName"
+        android:autoLink="all"
+        android:linksClickable="true"
         android:text="This is the tweet body" />
 
     <TextView

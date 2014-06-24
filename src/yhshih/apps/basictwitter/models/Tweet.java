@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 public class Tweet {
 	private String body;
 	private long uid;	//id
@@ -57,12 +59,14 @@ public class Tweet {
 			
 			Tweet tweet = Tweet.fromJSON(tweetJson);
 			if (tweet != null) {
+//				Log.d("debug", "uid: "+tweet.getUid());
 				tweets.add(tweet);
 			}
 		}
 		
 		return tweets;
 	}
+	
 	
 	@Override
 	public String toString() {

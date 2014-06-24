@@ -4,6 +4,8 @@ import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -32,19 +34,23 @@ public class TwitterClient extends OAuthBaseClient {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
     
-    public void getHomeTimeline(AsyncHttpResponseHandler handler) {
+    public void getHomeTimeline(AsyncHttpResponseHandler handler, int page) {
     	String apiUrl = getApiUrl("statuses/home_timeline.json");
     	RequestParams params = new RequestParams();
-    	params.put("since_id", "1");
+    	params.put("page", String.valueOf(page));
     	client.get(apiUrl, params, handler);	// use GET method
     }
     
-    public void getHomeTimeline(AsyncHttpResponseHandler handler, int since_id, int count) {
-    	String apiUrl = getApiUrl("statuses/home_timeline.json");
+    public void updateTweet(AsyncHttpResponseHandler handler, String status) {
+    	String apiUrl =getApiUrl("statuses/update.json");
     	RequestParams params = new RequestParams();
-    	params.put("since_id", String.valueOf(since_id));
-    	params.put("count", String.valueOf(count));
-    	client.get(apiUrl, params, handler);	// use GET method
+    	params.put("status", status);
+    	client.post(apiUrl, params, handler);
+    }
+    
+    public void getLoginUser(AsyncHttpResponseHandler handler) {
+    	String apiUrl = getApiUrl("account/verify_credentials.json");
+    	client.get(apiUrl, null, handler);
     }
     // CHANGE THIS
     // DEFINE METHODS for different API endpoints here

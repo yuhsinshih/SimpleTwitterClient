@@ -1,9 +1,13 @@
 package yhshih.apps.basictwitter.models;
 
+import java.io.Serializable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class User {
+public class User implements Serializable{
+
+	private static final long serialVersionUID = -4939523276680692354L;
 	private String name;
 	private long uid;
 	private String screenName;

@@ -6,15 +6,18 @@ import java.util.Locale;
 
 import yhshih.apps.basictwitter.models.Tweet;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ParseException;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.activeandroid.util.Log;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
@@ -42,14 +45,26 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		TextView tvUserName = (TextView) v.findViewById(R.id.tvUserName);
 		TextView tvBody = (TextView) v.findViewById(R.id.tvBody);
 		TextView tvCreatedTime = (TextView) v.findViewById(R.id.tvCreatedTime);
+		TextView tvScreenName = (TextView) v.findViewById(R.id.tvScreenName);
 		ivProfileImage.setImageResource(android.R.color.transparent);	// clear the previous loaded items
 		ImageLoader imageLoader = ImageLoader.getInstance();
-		
 		// Populate views with tweet data
 		imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
 		tvUserName.setText(tweet.getUser().getName());
 		tvBody.setText(tweet.getBody());
 		tvCreatedTime.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
+//		tvScreenName.setText("@" + tweet.getUser().getScreenName());
+		ivProfileImage.setTag(tvScreenName);
+		final String screenName = tweet.getUser().getScreenName();
+		
+		ivProfileImage.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Log.d("debug", "@yuhsinshih" );
+				Intent i = new Intent(getContext(), ProfileActivity.class);
+				i.putExtra("screen_name", screenName);
+				getContext().startActivity(i);
+			}
+		});;
 		return v;
 	}
 

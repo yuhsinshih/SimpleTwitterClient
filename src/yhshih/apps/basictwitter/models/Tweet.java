@@ -59,7 +59,6 @@ public class Tweet {
 			
 			Tweet tweet = Tweet.fromJSON(tweetJson);
 			if (tweet != null) {
-//				Log.d("debug", "uid: "+tweet.getUid());
 				tweets.add(tweet);
 			}
 		}

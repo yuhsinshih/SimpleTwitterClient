@@ -41,6 +41,13 @@ public class TwitterClient extends OAuthBaseClient {
     	client.get(apiUrl, params, handler);	// use GET method
     }
     
+    public void getMentionsTimeline(AsyncHttpResponseHandler handler, int page) {
+    	String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+    	RequestParams params = new RequestParams();
+    	params.put("page", String.valueOf(page));
+    	client.get(apiUrl, params, handler);	// use GET method
+    }
+    
     public void updateTweet(AsyncHttpResponseHandler handler, String status) {
     	String apiUrl =getApiUrl("statuses/update.json");
     	RequestParams params = new RequestParams();
@@ -48,9 +55,32 @@ public class TwitterClient extends OAuthBaseClient {
     	client.post(apiUrl, params, handler);
     }
     
-    public void getLoginUser(AsyncHttpResponseHandler handler) {
+    public void getMyInfo(AsyncHttpResponseHandler handler) {
     	String apiUrl = getApiUrl("account/verify_credentials.json");
     	client.get(apiUrl, null, handler);
+    }
+    
+    public void getUserInfo(AsyncHttpResponseHandler handler, String screen_name) {
+    	String apiUrl = getApiUrl("users/show.json");
+    	RequestParams params = new RequestParams();
+    	params.put("screen_name", screen_name);
+    	client.get(apiUrl, params, handler);
+    }
+    
+    // statuses/user_timeline.json
+    public void getUserTimeline(AsyncHttpResponseHandler handler, int page) {
+    	String apiUrl = getApiUrl("statuses/user_timeline.json");
+    	RequestParams params = new RequestParams();
+    	params.put("page", String.valueOf(page));
+    	client.get(apiUrl, params, handler);	// use GET method
+    }
+    
+    public void getUserTimeline(AsyncHttpResponseHandler handler, int page, String screen) {
+    	String apiUrl = getApiUrl("statuses/user_timeline.json");
+    	RequestParams params = new RequestParams();
+    	params.put("screen_name", screen);
+    	params.put("page", String.valueOf(page));
+    	client.get(apiUrl, params, handler);	// use GET method
     }
     // CHANGE THIS
     // DEFINE METHODS for different API endpoints here

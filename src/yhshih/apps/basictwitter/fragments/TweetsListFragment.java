@@ -2,6 +2,8 @@ package yhshih.apps.basictwitter.fragments;
 
 import java.util.ArrayList;
 
+import com.activeandroid.util.Log;
+
 import yhshih.apps.basictwitter.R;
 import yhshih.apps.basictwitter.TweetArrayAdapter;
 import yhshih.apps.basictwitter.TwitterApplication;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 //import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public abstract class TweetsListFragment extends Fragment {
 
@@ -40,6 +43,10 @@ public abstract class TweetsListFragment extends Fragment {
 		// Assign our view references
 		lvTweets = (ListView) v.findViewById(R.id.lvTweets);
 		lvTweets.setAdapter(aTweets);
+		
+//		String screen_name = getArguments().getString("screen_name");
+
+		
 		lvTweets.setOnScrollListener(new EndlessScrollListener() {
 
 			@Override

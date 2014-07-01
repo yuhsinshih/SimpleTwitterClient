@@ -11,26 +11,21 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 public class UserTimelineFragment extends TweetsListFragment {
 
 
-	public static UserTimelineFragment newInstance(String screen) {
+	public static UserTimelineFragment newInstance(String screen_name) {
 		UserTimelineFragment fragment = new UserTimelineFragment();
 		Bundle args = new Bundle();
-		args.putString("screen_name", screen);
+		args.putString("screen_name", screen_name);
 		fragment.setArguments(args);
 		return fragment;
 	}
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		String screen_name = getIntent().getStringExtra("screen_name");
-//		if(screen_name == null)
-//			loadProfileInfo();
-//		else
-//			loadProfileInfo(screen_name);
-//		String screen_name = getArguments().getString("screen_name");
-//		if(screen_name == null)
+		String screen_name = getArguments().getString("screen_name");
+		if(screen_name == null)
 			populateTimeline(1, false);
-//		else
-//			populateTimeline(1, false, screen_name);
+		else
+			populateTimeline(1, false, screen_name);
 	}
 	
 	public void populateTimeline(int offset, boolean clear) {

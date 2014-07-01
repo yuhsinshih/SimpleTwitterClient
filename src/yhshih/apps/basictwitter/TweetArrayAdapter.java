@@ -59,7 +59,6 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		
 		ivProfileImage.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Log.d("debug", "@yuhsinshih" );
 				Intent i = new Intent(getContext(), ProfileActivity.class);
 				i.putExtra("screen_name", screenName);
 				getContext().startActivity(i);

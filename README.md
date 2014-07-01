@@ -2,7 +2,7 @@
 
 ## Demo
 
-![Video Walkthrough](snapshot.gif)
+![Video Walkthrough](snapshot2.gif)
 
 * Complete the basic required features
 * Time spent : more than 14 hours ..

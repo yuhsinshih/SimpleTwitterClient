@@ -19,6 +19,9 @@ public class ComposeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_compose);
+
+		// Remove action bar
+		getActionBar().hide();
 		User me = (User) getIntent().getSerializableExtra("me");
 		TextView tvName = (TextView) findViewById(R.id.tvComposeName);
 		TextView tvScreen = (TextView) findViewById(R.id.tvComposeScreen);

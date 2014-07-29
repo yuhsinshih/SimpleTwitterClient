@@ -2,8 +2,6 @@ package yhshih.apps.basictwitter.fragments;
 
 import java.util.ArrayList;
 
-import com.activeandroid.util.Log;
-
 import yhshih.apps.basictwitter.R;
 import yhshih.apps.basictwitter.TweetArrayAdapter;
 import yhshih.apps.basictwitter.TwitterApplication;

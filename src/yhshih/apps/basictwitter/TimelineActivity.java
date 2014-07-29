@@ -11,7 +11,6 @@ import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -78,12 +77,18 @@ public class TimelineActivity extends FragmentActivity {
 		});
 	}
 	
-	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    // Inflate the menu items for use in the action bar
-	    getMenuInflater().inflate(R.menu.twitterclient_menu, menu);
-        return true;
+		// Inflate the menu items for use in the action bar
+		getMenuInflater().inflate(R.menu.twitterclient_menu, menu);
+		return true;
 	}
+
+	//	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+//	    // Inflate the menu items for use in the action bar
+//		MenuInflater inflater = getSupportMenuInflater();
+//		inflater.inflate(R.menu.twitterclient_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//	}
 	
 	public void onCompose(MenuItem mi) {
 		Intent i = new Intent(this, ComposeActivity.class);
@@ -93,26 +98,15 @@ public class TimelineActivity extends FragmentActivity {
 		startActivityForResult(i, 50);
 	}
 	
-//	public void updateTweet(String status) {
-//		client.updateTweet(new JsonHttpResponseHandler() {
-//			@Override
-//			public void onSuccess(JSONObject json) {
-//				populateTimeline(1, true);
-//			}
-//			@Override
-//			public void onFailure(Throwable e, String s) {
-//				Log.d("debug", e.toString());
-//				Log.d("debug", s.toString());
-//			}
-//		}, status);
-//	}
-	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
 			if(requestCode == 50) {
 				String status = data.getStringExtra("status");
-				Toast.makeText(this, status, Toast.LENGTH_SHORT).show();
-//				updateTweet(status);
+//				Toast.makeText(this, status, Toast.LENGTH_SHORT).show();
+				HomeTimelineFragment fragment = (HomeTimelineFragment) getSupportFragmentManager().findFragmentByTag("home");
+				fragment.updateTweet(status);
+				ActionBar actionBar = getActionBar();
+//				actionBar.setSelectedNavigationItem(0);
 			}
 		}
 	}

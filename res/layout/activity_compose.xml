@@ -56,6 +56,6 @@
         android:layout_below="@+id/etStatus"
         android:layout_marginTop="20dp"
         android:onClick="onSubmit"
-        android:text="Post tweet" />
+        android:text="Tweet" />
 
 </RelativeLayout>

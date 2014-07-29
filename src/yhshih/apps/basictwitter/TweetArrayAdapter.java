@@ -63,7 +63,7 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 				i.putExtra("screen_name", screenName);
 				getContext().startActivity(i);
 			}
-		});;
+		});
 		return v;
 	}
 
